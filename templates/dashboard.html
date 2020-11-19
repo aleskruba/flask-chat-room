@@ -1,0 +1,61 @@
+{% extends "bootstrap/base.html" %}
+
+{% block title %}
+Dashboard
+{% endblock %}
+
+{% block styles %}
+{{super()}}
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<link rel="stylesheet" href="{{url_for('.static', filename='dashboard.css')}}">
+{% endblock %}
+
+{% block content %}
+
+
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div id="navbar" class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button></div>
+
+          <div  class="navbar-header">
+          <ul class="nav navbar-nav navbar-left"><li>
+          <a href="#" class="display-4"> Welcome {{username}} </a></li>
+            </ul>
+        </div>
+
+        <div  class="navbar-header">
+          <ul class="nav navbar-nav navbar-right">
+         <li><a class="display-4" href="{{ url_for('logout') }}">Log Out</a></li>
+          </ul>
+          </div></div>
+
+    </nav>
+
+<form method="post" action="/process">
+<div  class="container-fluid">
+   <div class="input-group">
+  <div class="input-group-prepend">
+    <span STYLE="font-size:3mm" class="input-group-text">Type your text</span>
+  </div>
+  <textarea style="font-size:15pt" class="form-control"  cols="50" rows="3" name="comment"></textarea>
+</div>
+
+    <button type="submit" value="submit" class="btn btn-primary">Click here to sumbit</button>
+</div>
+</form>
+
+{% for i in result | reverse%}
+<hr>
+<div class="alert alert-primary" STYLE="font-size:10mm" role="alert">
+    <b><h3>{{ i.username }} <small class="text-muted"><i>     posted on {{ i.posted.strftime('%b %d %H:%M')}}</i></small></h3></b></div>
+<div STYLE="font-size:4mm" >
+<p>{{ i.comment }}</p>
+</div>
+    {% endfor %}
+{% endblock %}
