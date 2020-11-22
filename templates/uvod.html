@@ -1,30 +1,29 @@
-{% extends "bootstrap/base.html" %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <meta charset="UTF-8">
+        <title>Uvod</title>
+</head>
+<body>
+<div  class="jumbotron">
 
-{% block title %}
-Dashboard
-{% endblock %}
+<a href="/login">please login here</a>
+    <br>
+    <a href="/signup">please signup here</a>
+</div>
 
-{% block styles %}
-{{super()}}
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-<link rel="stylesheet" href="{{url_for('.static', filename='dashboard.css')}}">
-{% endblock %}
 
-{% block content %}
+<div class="card">
+  <div class="card-header">
+    <h2>Welcome to the chatroom</h2>
 
-    <nav class="navbar navbar-inverse navbar-fixed-top">
-      <div id="navbar" class="container-fluid">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button></div>
+  <div class="card-body">
+    <blockquote class="blockquote mb-0">
+      <p>You can chat with your friends here .</p>
+      <footer class="blockquote-footer"><cite>Copyright © 2020 Author Ales. All rights reserved.</cite></footer>
+    </blockquote>
+  </div></div>
 
-          <div  class="navbar-header">
-          <ul class="nav navbar-nav navbar-left"><li>
-          <a href="/login" class="display-4"> New user  {{username}}  has been created, click here to login </a></li>
-            </ul>
-        </div></div> </nav>
-    {% endblock %}
+</body>
+</html>
