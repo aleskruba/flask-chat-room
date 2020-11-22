@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>Flask comments app</title>
+</head>
+<body>
+  <div class="card-header">
+    <h2>Hello my friend  {{username}} ! / <a class="display-6" href="{{ url_for('logout') }}">     Log Out</a></h2>
+  </div>
+
+
+<form method="post" action="/process">
+
+    <div class="form-group">
+        <label for="exampleFormControlTextarea1">type your comment and </label>
+        <button  type="submit" value="submit" class="btn btn-primary">posted it here</button>
+        <textarea class="form-control" id="exampleFormControlTextarea1" name="comment" rows="2"></textarea></div>
+
+
+</form>
+{% for i in result | reverse%}
+<hr>
+<div class="alert alert-primary" role="alert">
+    <b><h6>{{ i.username }}<small class="text-muted"><i>     posted on {{ i.posted.strftime('%b %d %H:%M')}}</i></small></h6></b></div>
+</div>
+<h6>{{ i.comment }}</h6>
+
+{% endfor %}
+
+</body>
+</html>
